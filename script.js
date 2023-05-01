@@ -22,7 +22,7 @@ let monthsOfYear = [
   "December"
 ];
 let month = monthsOfYear[now.getMonth()];
-let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 let dayOfWeek = daysOfWeek[now.getDay()];
 let dayOfMonth = now.getDate();
 let hours = now.getHours();
@@ -35,7 +35,7 @@ minutes = minutes < 10 ? "0" + minutes : minutes;
 // Set date and time elements
 document.getElementById(
   "date"
-).textContent = `${month} ${dayOfWeek}, ${dayOfMonth}`;
+).textContent = `${dayOfWeek} ${month}, ${dayOfMonth}`;
 document.getElementById("time").textContent =
   hours + ":" + minutes + " " + amOrPm;
 
