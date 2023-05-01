@@ -1,14 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
-    <title>Weather App Cat🐈‍⬛</title>
-</head>
-<body>
-   <h1>Hello Git</h1> 
-</body>
-<script src="script.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="src/index.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-xr7fhHYnAAkxTtT+YKcPnEidna/cHuW1VzvMPcNOyiCkp60rgiYSNq3Aqk7MQg0YiZz"
+    />
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
+    <title>Cat Weather</title>
+  </head>
+  <body>
+    <!--START OF SEARCH-->
+    <div class="container" style="text-align: center;">
+    <form id="search-form" class="search-form" autocomplete="off">
+      <input
+        type="text"
+        placeholder="Enter city"
+        id="city-input"
+        autocomplete="off"
+      />
+      <button class="search-btn" type="submit">
+        Search
+      </button>
+    </form>
+  </form>
+</div>
+    <!--END OF SEARCH-->
+
+   
+    <!---START OF CAT IMG-->
+    
+        <img src="img/insideCat.svg" alt="Cat image" id="cat-image"/>
+      
+    <!---END OF CAT IMG-->
+
+    <!--- Start of current card-->
+    <div class="card shadow" id="currentCard" style="width: 18rem;">
+      <div class="card-body">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-auto">
+              <h5 class="card-title" id="city"></h5>
+            </div>
+            <div class="col-auto">
+              <h1 class="card-title" id="temp">-</h1>
+            </div>
+          </div>
+        </div>
+        <h6 class="card-subtitle mb-2 text-body-secondary" id="date">-</h6>
+        <p class="card-text" id="time">-</p>
+        <hr />
+        
+        <p id="description"><em>-</em></p>
+        <div id="weather-icon">-</div>
+      </div>
+    </div>
+    <!--- End of current card-->
+
+    <hr />
+
+    <!-- This is the START of predictions -->
+    "predictions"
+    <!-- This is the END of predictions -->
+
+    <footer>
+      <hr />
+      <p>Coded with 💗 by Vivacity</p>
+      <hr />
+    </footer>
+
+    <!--- This is the END of the page -->
+  </body>
 </html>

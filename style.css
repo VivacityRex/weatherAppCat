@@ -1,3 +1,39 @@
-h1 {
-    color: blue;
-}
+body {
+    background-color: pink;
+    opacity: 0.8;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .container {
+    margin: 0 auto;
+    max-width: 700px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  #cat-image {
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  .card {
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+    background-color: #fff0ef;
+  }
+  #currentCard {
+    margin-top: 40px;
+    text-align: center;
+  }
+  footer {
+    margin: 0 auto;
+    text-align: center;
+  }
+  
