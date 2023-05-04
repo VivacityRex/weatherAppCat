@@ -133,3 +133,20 @@ function showPosition(position) {
 }
 
 getLocation();
+// Temp convert button
+const celsiusBtn = document.querySelector('.btn-outline-primary');
+const fahrenheitBtn = document.querySelector('.btn-outline-secondary');
+const temperatureInput = document.querySelector('#temp');
+const resultOutput = document.querySelector('#result');
+
+celsiusBtn.addEventListener('click', () => {
+  const celsiusTemp = parseFloat(temperatureInput.value);
+  const fahrenheitTemp = (celsiusTemp * 9/5) + 32;
+  resultOutput.textContent = `${fahrenheitTemp} °F`;
+});
+
+fahrenheitBtn.addEventListener('click', () => {
+  const fahrenheitTemp = parseFloat(temperatureInput.value);
+  const celsiusTemp = (fahrenheitTemp - 32) * 5/9;
+  resultOutput.textContent = `${celsiusTemp} °C`;
+});

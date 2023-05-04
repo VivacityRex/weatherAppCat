@@ -19,9 +19,10 @@
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css" />
-    <title>Cat Weather</title>
+    <title>Weather App Cat</title>
   </head>
   <body>
+   
     <!--START OF SEARCH-->
     <div class="container" style="text-align: center;">
     <form id="search-form" class="search-form" autocomplete="off">
@@ -34,9 +35,11 @@
       <button class="search-btn" type="submit">
         Search
       </button>
+      
     </form>
-  </form>
+ 
 </div>
+
     <!--END OF SEARCH-->
 
    
@@ -49,6 +52,7 @@
     <!--- Start of current card-->
     <div class="card shadow" id="currentCard" style="width: 18rem;">
       <div class="card-body">
+        <div class="card-front">
         <div class="container text-center">
           <div class="row">
             <div class="col-auto">
@@ -56,23 +60,80 @@
             </div>
             <div class="col-auto">
               <h1 class="card-title" id="temp">-</h1>
+              <div class="btn-group" role="group" aria-label="Temperature Units">
+                <button type="button" class="btn btn-outline-primary active">Celsius</button>
+                <button type="button" class="btn btn-outline-secondary">Fahrenheit</button>
+              </div>
             </div>
           </div>
         </div>
         <h6 class="card-subtitle mb-2 text-body-secondary" id="date">-</h6>
         <p class="card-text" id="time">-</p>
         <hr />
-        
         <p id="description"><em>-</em></p>
         <div id="weather-icon">-</div>
+        
       </div>
     </div>
+    </div>
+    
     <!--- End of current card-->
-
+    
     <hr />
 
     <!-- This is the START of predictions -->
-    "predictions"
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col">
+          <div class="card-p">
+            <div class="card-body">
+              <h5 class="card-title-p">Monday</h5>
+              <p class="card-text">--</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card-p">
+            <div class="card-body">
+              <h5 class="card-title-p">Tuesday</h5>
+              <p class="card-text">--</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card-p">
+            <div class="card-body">
+              <h5 class="card-title-p">Wednesday</h5>
+              <p class="card-text">--</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card-p">
+            <div class="card-body">
+              <h5 class="card-title-p">Thursday</h5>
+              <p class="card-text">--</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card-p">
+            <div class="card-body">
+              <h5 class="card-title-p">Friday</h5>
+              <p class="card-text">--</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card-p">
+            <div class="card-body">
+              <h5 class="card-title-p">Saturday</h5>
+              <p class="card-text">--</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- This is the END of predictions -->
 
     <footer>
