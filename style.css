@@ -12,11 +12,15 @@ body {
   hr {
     border-top: 2px solid #6C63FF; 
   }
+  h5 {
+    color: #39374E;
+  }
+  ul {
+    padding: 0;
+  }
   li {
     list-style: none;
-    text-align: left;
     color: #39374E;
-    margin: 5px 30px 5px 45px;
   }
   .container {
     margin: 0 auto;
@@ -24,6 +28,10 @@ body {
     padding: 20px;
     text-align: center;
     color: #39374E;
+  }
+  .container-p {
+    padding-top: 0;
+    margin-bottom: 30px;
   }
   .card {
     margin: 0 auto;
@@ -33,12 +41,24 @@ body {
   }
   .card-p {
     height: 100px;
+    text-align: center;
+    background-image: linear-gradient(to bottom, #fff0ef, #FFB6C1);
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: transform 0.2s ease-in-out;
+  }
+  .card-p:hover {
+    transform: scale(1.05);
+  }
+  .card-p:active {
+    transform: scale(0.95);
   }
   .col {
     max-width: 100px;
     padding: 5px;
   }
   .card-title-p {
+    padding-top: 10px;
     font-size: 15px;
   }
   .btn-primary {
@@ -71,10 +91,19 @@ body {
   .weather-temperature .active {
     color: #39374E;
     cursor: default;
-
   }
   .weather-temperature .active:hover {
     text-decoration: none;
+  }
+  #current-weather-information {
+    margin: 5px 30px 5px 45px;
+    text-align: left;
+    padding-left: 30px;
+  }
+  #prediction-weather-information {
+    text-align: center;
+    padding: 0;
+    font-size: 10px;
   }
   #temp {
     display: inline-block;
@@ -110,7 +139,7 @@ body {
   }
   #city {
     line-height: 1;
-    margin: 15px;
+    margin: 20px;
   }
   #city-input {
     width: 40%;
@@ -121,8 +150,10 @@ body {
   }
   #description {
     font-style: italic;
+    font-size: 15px;
     margin: 0 auto;
-    color: #39374E;
+    color: #C15776;
+    font-weight: 100;
   }
   #weather-icon {
   filter: hue-rotate(240deg);
