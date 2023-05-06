@@ -1,7 +1,6 @@
 // Set API key and default city
 let apiKey = "f99c13c91758041c79251683cc1d7b5f";
 let city = "Quebec City";
-
 // Set API URL with default city and units
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
 
@@ -43,15 +42,18 @@ document.getElementById("time").textContent =
 
 
 function showWeather(response, setCatImage) {
-  let h1 = document.querySelector("h1");
+  let city = document.querySelector("#city");
   let temperature = Math.round(response.data.main.temp);
   let description = response.data.weather[0].description; 
-  h1.innerHTML = `${response.data.name} ${temperature}`;
+  let temp = document.getElementById("temp");
   let iconElement = document.querySelector("#weather-icon");
+  city.innerHTML = `${response.data.name}`
+  temp.innerHTML =  `${temperature}`;
   document.getElementById("description").textContent = description;
   iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   // pass temperature and temperatureUnit to setCatImage function
   setCatImage(temperature);
+  celsiusTemperature = response.data.main.temp;
 }
 
 // Search function to handle the form submission and make the API request
@@ -135,3 +137,27 @@ function showPosition(position) {
 
 getLocation();
 
+//Unit conversion
+
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp");
+  let FahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(FahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+
+
+let fahrenheitlink = document.querySelector("#fahrenheit-link");
+fahrenheitlink.addEventListener("click", displayFahrenheitTemp);
+
+let celsiuslink = document.querySelector("#celsius-link");
+celsiuslink.addEventListener("click", displayCelsiusTemperature);

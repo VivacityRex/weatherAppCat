@@ -9,8 +9,7 @@ body {
     text-align: center;
   }
   hr {
-    border-top: 2px solid #6C63FF;
-    
+    border-top: 2px solid #6C63FF; 
   }
   .container {
     margin: 0 auto;
@@ -49,6 +48,7 @@ body {
    text-align: top;
    text-decoration: none;
    color: #6C63FF;
+   font-weight: 600;
   }
   .convert-link:hover {
     text-decoration: underline;
@@ -62,6 +62,7 @@ body {
   }
   #temp {
     display: inline-block;
+    color: #6C63FF;
   }
   #cat-image {
     height: 100px;
@@ -91,11 +92,20 @@ body {
     border: 1px solid #6C63FF;
     background-color: #fff0ef;
   }
+  #city {
+    line-height: 1;
+    margin: 15px;
+  }
   #city-input {
     width: 40%;
   }
   #city-input:focus {
     border-color: #6C63FF;
     box-shadow: none;
+  }
+  #description {
+    font-style: italic;
+    margin: 0 auto;
+    color: #6C63FF;
   }
  
