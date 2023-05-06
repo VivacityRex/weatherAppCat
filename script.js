@@ -41,12 +41,12 @@ document.getElementById("time").textContent =
 
 // Show weather function to display the city name, temperature, and description
 
-let temperatureUnit = "C";
+
 function showWeather(response, setCatImage) {
   let h1 = document.querySelector("h1");
   let temperature = Math.round(response.data.main.temp);
   let description = response.data.weather[0].description; 
-  h1.innerHTML = `${response.data.name} ${temperature}°C `;
+  h1.innerHTML = `${response.data.name} ${temperature}`;
   let iconElement = document.querySelector("#weather-icon");
   document.getElementById("description").textContent = description;
   iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);

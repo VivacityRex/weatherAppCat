@@ -44,6 +44,25 @@ body {
     border-color: #fff0ef;
     color: #FFB6C1;
   }
+  .convert-link {
+   display: inline-block;
+   text-align: top;
+   text-decoration: none;
+   color: #6C63FF;
+  }
+  .convert-link:hover {
+    text-decoration: underline;
+  }
+  .divider {
+    color: #6C63FF;
+  }
+  .units {
+    position: relative;
+    top: -15px;
+  }
+  #temp {
+    display: inline-block;
+  }
   #cat-image {
     height: 100px;
     display: block;
@@ -57,6 +76,7 @@ body {
   }
   #currentCard {
     margin-top: 40px;
+    margin-bottom: 40px;
     text-align: center;
   } 
   #code-link {
