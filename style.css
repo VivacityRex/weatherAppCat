@@ -22,7 +22,8 @@ body {
     margin: 0 auto;
     text-align: center;
     padding: 0;
-    background-color: #fff0ef;
+    background-image: linear-gradient(to bottom, #fff0ef, #FFB6C1);
+   /* background-color: #fff0ef;*/
   }
   .card-p {
     height: 100px;
@@ -33,17 +34,6 @@ body {
   }
   .card-title-p {
     font-size: 15px;
-  }
-  .btn-group {
-    color: pink !important;
-  }
-  .btn-group button.active {
-    background-color: transparent;
-    color: #6C63FF;
-    border: 1px solid #6C63FF;
-  }
-  .btn {
-    font-size: 14px;
   }
   #cat-image {
     height: 100px;
@@ -68,4 +58,4 @@ body {
   #code-linke:hover {
     text-decoration: underline;
   }
- 
+  

@@ -45,10 +45,11 @@ let temperatureUnit = "C";
 function showWeather(response, setCatImage) {
   let h1 = document.querySelector("h1");
   let temperature = Math.round(response.data.main.temp);
-  let description = response.data.weather[0].description;
+  let description = response.data.weather[0].description; 
   h1.innerHTML = `${response.data.name} ${temperature}°C `;
-  let temperatureUnit = "C";
+  let iconElement = document.querySelector("#weather-icon");
   document.getElementById("description").textContent = description;
+  iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   // pass temperature and temperatureUnit to setCatImage function
   setCatImage(temperature);
 }
@@ -133,20 +134,4 @@ function showPosition(position) {
 }
 
 getLocation();
-// Temp convert button
-const celsiusBtn = document.querySelector('.btn-outline-primary');
-const fahrenheitBtn = document.querySelector('.btn-outline-secondary');
-const temperatureInput = document.querySelector('#temp');
-const resultOutput = document.querySelector('#result');
 
-celsiusBtn.addEventListener('click', () => {
-  const celsiusTemp = parseFloat(temperatureInput.value);
-  const fahrenheitTemp = (celsiusTemp * 9/5) + 32;
-  resultOutput.textContent = `${fahrenheitTemp} °F`;
-});
-
-fahrenheitBtn.addEventListener('click', () => {
-  const fahrenheitTemp = parseFloat(temperatureInput.value);
-  const celsiusTemp = (fahrenheitTemp - 32) * 5/9;
-  resultOutput.textContent = `${celsiusTemp} °C`;
-});
