@@ -3,6 +3,7 @@ body {
     opacity: 0.8;
     background-repeat: no-repeat;
     background-size: cover;
+    color: #39374E;
   }
   footer {
     margin: 0 auto;
@@ -14,7 +15,7 @@ body {
   li {
     list-style: none;
     text-align: left;
-    color: #6C63FF;
+    color: #39374E;
     margin: 5px 30px 5px 45px;
   }
   .container {
@@ -22,6 +23,7 @@ body {
     max-width: 700px;
     padding: 20px;
     text-align: center;
+    color: #39374E;
   }
   .card {
     margin: 0 auto;
@@ -60,11 +62,11 @@ body {
     text-decoration: underline;
   }
   .divider {
-    color: #6C63FF;
+    color: #39374E;
   }
   .units {
     position: relative;
-    top: -15px;
+    top: -17px;
   }
   .weather-temperature .active {
     color: #39374E;
@@ -120,9 +122,9 @@ body {
   #description {
     font-style: italic;
     margin: 0 auto;
-    color: #6C63FF;
+    color: #39374E;
   }
-#weather-icon {
+  #weather-icon {
   filter: hue-rotate(240deg);
-}
+  }
  
