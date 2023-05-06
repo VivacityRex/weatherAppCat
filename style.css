@@ -23,7 +23,6 @@ body {
     text-align: center;
     padding: 0;
     background-image: linear-gradient(to bottom, #fff0ef, #FFB6C1);
-   /* background-color: #fff0ef;*/
   }
   .card-p {
     height: 100px;
@@ -35,13 +34,23 @@ body {
   .card-title-p {
     font-size: 15px;
   }
+  .btn-primary {
+    color:#6C63FF;
+    background-color: #fff0ef;
+    border-color: #6C63FF;
+  }
+  .btn-primary:hover {
+    background-color: #6C63FF;
+    border-color: #fff0ef;
+    color: #FFB6C1;
+  }
   #cat-image {
     height: 100px;
     display: block;
     margin: 10px auto;
     padding: 10px;
     position: absolute;
-    top: 50px;
+    top: 70px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -52,10 +61,21 @@ body {
   } 
   #code-link {
     text-decoration: none;
-    color: purple;
+    color: #6C63FF;
     cursor: pointer;
   }  
-  #code-linke:hover {
+  #code-link:hover {
     text-decoration: underline;
   }
-  
+  #search-form {
+    border: 1px solid #6C63FF;
+    background-color: #fff0ef;
+  }
+  #city-input {
+    width: 40%;
+  }
+  #city-input:focus {
+    border-color: #6C63FF;
+    box-shadow: none;
+  }
+ 
