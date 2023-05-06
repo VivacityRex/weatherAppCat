@@ -47,8 +47,12 @@ function showWeather(response, setCatImage) {
   let description = response.data.weather[0].description; 
   let temp = document.getElementById("temp");
   let iconElement = document.querySelector("#weather-icon");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
   city.innerHTML = `${response.data.name}`
   temp.innerHTML =  `${temperature}`;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
   document.getElementById("description").textContent = description;
   iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   // pass temperature and temperatureUnit to setCatImage function

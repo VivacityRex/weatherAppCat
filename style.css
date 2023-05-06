@@ -11,6 +11,12 @@ body {
   hr {
     border-top: 2px solid #6C63FF; 
   }
+  li {
+    list-style: none;
+    text-align: left;
+    color: #6C63FF;
+    margin: 5px 30px 5px 45px;
+  }
   .container {
     margin: 0 auto;
     max-width: 700px;
@@ -116,4 +122,7 @@ body {
     margin: 0 auto;
     color: #6C63FF;
   }
+#weather-icon {
+  filter: hue-rotate(240deg);
+}
  
