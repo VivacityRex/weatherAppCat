@@ -60,9 +60,17 @@ body {
     position: relative;
     top: -15px;
   }
+  .weather-temperature .active {
+    color: #39374E;
+    cursor: default;
+
+  }
+  .weather-temperature .active:hover {
+    text-decoration: none;
+  }
   #temp {
     display: inline-block;
-    color: #6C63FF;
+    color: #39374E;
   }
   #cat-image {
     height: 100px;
