@@ -1,5 +1,5 @@
 // Set API key and default city
-let apiKey = "f99c13c91758041c79251683cc1d7b5f";
+let apiKey = "50fa4024e3b1d5eac2f51ab18a47e997";
 let city = "Quebec City";
 // Set API URL with default city and units
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
@@ -38,9 +38,75 @@ document.getElementById(
 document.getElementById("time").textContent =
   hours + ":" + minutes + " " + amOrPm;
 
-// Show weather function to display the city name, temperature, and description
 
 
+
+
+  let forecastElement = document.querySelector("#forecast");
+  //forecastElement.innerHTML = "";
+
+
+  function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  
+    return days[day];
+  }
+  
+    //predictions 
+function displayForecast(response){
+  let forecast = response.data.daily.slice(1);
+  
+    let forecastHTML = `<div class="row d-flex justify-content-center align-items-center">`;
+  
+    forecast.forEach(function(forecastDay, index) {
+      if (index < 6) {
+    forecastHTML = 
+  forecastHTML + 
+  `
+  <div class="col">
+  <div class="card-p shadow card-body">
+  <div class="weather-icon-container">
+      <div class="card-title-p weather-forecast-date" id="date-p">${formatDay(forecastDay.dt)}</div>
+      <div class="weather-description-p"> ${forecastDay.weather[0].description}
+      </div>
+        <ul>
+        <li>
+          <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" class="prediction-weather-information" id="weather-icon" width="40">          
+          </img>
+          </li>
+          <li class="list-item card-text prediction-weather-information" id="forecast-temp-p">
+            <span class="weather-forecast-temp-max temp">${Math.round(forecastDay.temp.max)}°</span>
+            <small id="min-max-divider">|</small>
+            <span class="weather-forecast-temp-min temp">${Math.round(forecastDay.temp.min)}°</span>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+`;
+  }
+});
+
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+}
+
+//displayForecast();
+//console.log(apiUrl);
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "3bc520cc14bbdedfd7e45158f2ef0439";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+
+
+  // Show weather function to display the city name, temperature, and description
 function showWeather(response, setCatImage) {
   let city = document.querySelector("#city");
   let temperature = Math.round(response.data.main.temp);
@@ -58,6 +124,8 @@ function showWeather(response, setCatImage) {
   // pass temperature and temperatureUnit to setCatImage function
   setCatImage(temperature);
   celsiusTemperature = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 // Search function to handle the form submission and make the API request
