@@ -18,10 +18,18 @@ let monthsOfYear = [
   "September",
   "October",
   "November",
-  "December"
+  "December",
 ];
 let month = monthsOfYear[now.getMonth()];
-let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let daysOfWeek = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 let dayOfWeek = daysOfWeek[now.getDay()];
 let dayOfMonth = now.getDate();
 let hours = now.getHours();
@@ -38,48 +46,51 @@ document.getElementById(
 document.getElementById("time").textContent =
   hours + ":" + minutes + " " + amOrPm;
 
+let forecastElement = document.querySelector("#forecast");
+//forecastElement.innerHTML = "";
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
+  return days[day];
+}
 
-
-  let forecastElement = document.querySelector("#forecast");
-  //forecastElement.innerHTML = "";
-
-
-  function formatDay(timestamp) {
-    let date = new Date(timestamp * 1000);
-    let day = date.getDay();
-    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  
-    return days[day];
-  }
-  
-    //predictions 
-function displayForecast(response){
+//predictions
+function displayForecast(response) {
   let forecast = response.data.daily.slice(1);
-  
-    let forecastHTML = `<div class="row d-flex justify-content-center align-items-center">`;
-  
-    forecast.forEach(function(forecastDay, index) {
-      if (index < 6) {
-    forecastHTML = 
-  forecastHTML + 
-  `
+
+  let forecastHTML = `<div class="row d-flex justify-content-center align-items-center">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
   <div class="col">
   <div class="card-p shadow card-body">
   <div class="weather-icon-container">
-      <div class="card-title-p weather-forecast-date" id="date-p">${formatDay(forecastDay.dt)}</div>
+      <div class="card-title-p weather-forecast-date" id="date-p">${formatDay(
+        forecastDay.dt
+      )}</div>
       <div class="weather-description-p"> ${forecastDay.weather[0].description}
       </div>
         <ul>
         <li>
-          <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" class="prediction-weather-information" id="weather-icon" width="40">          
+          <img src="https://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png" class="prediction-weather-information" id="weather-icon" width="40">          
           </img>
           </li>
           <li class="list-item card-text prediction-weather-information" id="forecast-temp-p">
-            <span class="weather-forecast-temp-max temp">${Math.round(forecastDay.temp.max)}°</span>
+            <span class="weather-forecast-temp-max temp">${Math.round(
+              forecastDay.temp.max
+            )}°</span>
             <small id="min-max-divider">|</small>
-            <span class="weather-forecast-temp-min temp">${Math.round(forecastDay.temp.min)}°</span>
+            <span class="weather-forecast-temp-min temp">${Math.round(
+              forecastDay.temp.min
+            )}°</span>
           </li>
         </ul>
         
@@ -87,11 +98,11 @@ function displayForecast(response){
     </div>
   </div>
 `;
-  }
-});
+    }
+  });
 
-forecastHTML = forecastHTML + `</div>`;
-forecastElement.innerHTML = forecastHTML;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 //displayForecast();
@@ -104,23 +115,24 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-
-
-  // Show weather function to display the city name, temperature, and description
+// Show weather function to display the city name, temperature, and description
 function showWeather(response, setCatImage) {
   let city = document.querySelector("#city");
   let temperature = Math.round(response.data.main.temp);
-  let description = response.data.weather[0].description; 
+  let description = response.data.weather[0].description;
   let temp = document.getElementById("temp");
   let iconElement = document.querySelector("#weather-icon");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
-  city.innerHTML = `${response.data.name}`
-  temp.innerHTML =  `${temperature}`;
+  city.innerHTML = `${response.data.name}`;
+  temp.innerHTML = `${temperature}`;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   document.getElementById("description").textContent = description;
-  iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   // pass temperature and temperatureUnit to setCatImage function
   setCatImage(temperature);
   celsiusTemperature = response.data.main.temp;
@@ -229,8 +241,6 @@ function displayCelsiusTemperature(event) {
 }
 
 let celsiusTemperature = null;
-
-
 
 let fahrenheitlink = document.querySelector("#fahrenheit-link");
 fahrenheitlink.addEventListener("click", displayFahrenheitTemp);
